@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin</h1>
+
+<div class="text-start mb-3">
+  <%= link_to '管理公司資訊', admin_company_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="text-end mb-3">
+  <%= link_to '新增職缺', new_admin_job_path, class: 'btn btn-primary' %>
+</div>
+
+
+<% @jobs.each do |job| %>
+  <%= link_to admin_job_path(job) do %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-row justify-content-between">
+          <div class="fw-bold"><%= job.name %></div>
+          <div class="d-flex flex-row">
+            <div>
+              <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" <%= job.open ? "checked" : "" %> disabled>
+              </div>
+            </div>
+            <div>
+              <object>
+              <%= link_to admin_job_path(job), method: :delete, data: { confirm: '確定要刪除?' } do %>
+                <i class="fa fa-trash-o"></i>
+              <% end %>
+              </object>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+

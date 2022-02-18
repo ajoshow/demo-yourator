@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @job.name %></h1>
+<div class="p-3">
+  <div class="mb-5">
+    <label class="form-label title-label">工作內容</label>
+    <%= @job.description %>
+  </div>
+  <div class="mb-5">
+    <label class="form-label title-label">條件要求</label>
+    <%= @job.prerequisite %>
+  </div>
+  <div class="mb-5">
+    <label class="form-label title-label">公司福利</label>
+    <%= @job.company_benefit %>
+  </div>
+  <div class="mb-5">
+    <label class="form-label title-label">薪資範圍</label>
+    <%= @job.salary_range %>
+  </div>
+</div>
+
+<div class="text-center">
+  <button type="button" class="btn btn-primary" disabled>現在應徵</button>
+</div>

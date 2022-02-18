@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>公司列表</h1>
+
+<% @companies.each do |company| %>
+  <%= link_to company do %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-row justify-content-between">
+          <div class="fw-bold"><%= company.name %></div>
+          <div class="d-flex flex-row">
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

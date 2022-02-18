@@ -1,0 +1,34 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="d-flex flex-row justify-content-between">
+      <div><h6>精選公司</h6></div>
+      <div><%= link_to "更多公司", companies_path %></div>
+    </div>
+    <div class="d-flex flex-row justify-content-start">
+      <% @companies.each do |company| %>
+        <%= link_to company do %>
+          <div class="brick"><%= company.name %></div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="d-flex flex-row justify-content-between">
+      <div><h6>精選職缺</h6></div>
+      <div><%= link_to "更多職缺", jobs_path %></div>
+    </div>
+    <div class="d-flex flex-row justify-content-start">
+      <% @jobs.each do |job| %>
+        <%= link_to job do %>
+          <div class="brick"><%= job.name %></div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+

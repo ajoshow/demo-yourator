@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @company.name %></h1>
+<div class="p-3">
+  <div class="mb-5">
+    <label class="form-label title-label">公司介紹</label>
+    <%= @company.description %>
+  </div>
+  <div class="mb-5">
+    <label class="form-label title-label">公司理念</label>
+    <%= @company.mission %>
+  </div>
+  <div class="mb-5">
+    <label class="form-label title-label">媒體報導</label>
+    <%= @company.media_coverage %>
+  </div>
+  <div class="mb-5">
+    <label class="form-label title-label">薪資福利</label>
+    <%= @company.benefit %>
+  </div>
+  <div class="mb-5">
+    <label class="form-label title-label">目前職缺</label>
+    <% @company.jobs.each do |job| %>
+      <%= link_to job do %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex flex-row justify-content-between">
+              <div class="fw-bold"><%= job.name %></div>
+              <div class="d-flex flex-row">
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

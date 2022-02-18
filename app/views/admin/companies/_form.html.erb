@@ -1,0 +1,29 @@
+<%= form_with(model: company, url: admin_company_path) do |form| %>
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+        <% company.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <div class="mb-3"><label>公司名稱</label><%= form.text_field :name, class: 'form-control' %> </div>
+    <div class="mb-3"><label>公司介紹</label><%= form.text_field :description, class: 'form-control' %> </div>
+    <div class="mb-3"><label>公司理念</label><%= form.text_field :mission, class: 'form-control' %> </div>
+    <div class="mb-3"><label>媒體報導</label><%= form.text_field :media_coverage, class: 'form-control' %> </div>
+    <div class="mb-3"><label>薪資福利</label><%= form.text_field :benefit, class: 'form-control' %> </div>
+    <div class="mb-3">
+      <label class="form-check-label" for="activeSwitch">開放</label>
+      <div class="form-check form-switch">
+        <%= form.check_box :active, class: "form-check-input", id: "activeSwitch" %>
+      </div>
+    </div>
+
+    <%= form.submit '送出', class: 'btn btn-primary' %>
+  </div>
+<% end %>

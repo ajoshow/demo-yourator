@@ -1,0 +1,29 @@
+<%= form_with(model: job, url: url) do |form| %>
+  <% if job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+        <% job.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <div class="mb-3"><label>工作名稱</label><%= form.text_field :name, class: 'form-control' %> </div>
+    <div class="mb-3"><label>工作內容</label><%= form.text_field :description, class: 'form-control' %> </div>
+    <div class="mb-3"><label>條件要求</label><%= form.text_field :prerequisite, class: 'form-control' %> </div>
+    <div class="mb-3"><label>公司福利</label><%= form.text_field :company_benefit, class: 'form-control' %> </div>
+    <div class="mb-3"><label>薪資範圍</label><%= form.text_field :salary_range, class: 'form-control' %> </div>
+    <div class="mb-3">
+      <label class="form-check-label" for="openSwitch">開放</label>
+      <div class="form-check form-switch">
+        <%= form.check_box :open, class: "form-check-input", id: "openSwitch" %>
+      </div>
+    </div>
+
+    <%= form.submit '送出', class: "btn btn-primary" %>
+  </div>
+<% end %>
